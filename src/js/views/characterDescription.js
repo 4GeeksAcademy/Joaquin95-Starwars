@@ -1,35 +1,31 @@
-import React, { useEffect, useState, useContext } from "react";
-import { useParams } from "react-router";
-import { Context } from "../store/appContext"; // Import the context
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 export default function CharacterDescription() {
     const { id } = useParams();
-    const [character, setCharacter] = useState({});
-    const { store, actions } = useContext(Context);
+    const [character, setCharacter] = useState(null);
 
     useEffect(() => {
-        async function getCharacter() {
-            try {
-                let response = await fetch(`https://www.swapi.tech/api/people/?format=json`); // Replace with actual API
-                let data = await response.json();
-                setCharacter(data);
-            } catch (error) {
-                console.log("Error fetching character:", error);
-            }
+        async function fetchCharacter() {
+            const response = await fetch(`https://www.swapi.tech/api/people/?format=json`);
+            const data = await response.json();
+            setCharacter(data.result.properties); // Update based on the API response structure
         }
-
-        getCharacter();
-    }, [id]); // Add dependency array to avoid infinite re-renders
+        fetchCharacter();
+    }, [id]);
 
     return (
-        <div>
-            <img src={character.image} alt={character.name} />
-            <h1>Name:</h1>
-            <h6>{character.name}</h6>
-            <h1>Love:</h1>
-            <h6>{character.love}</h6>
-            <h1>Profession:</h1>
-            <h6>{character.profession}</h6>
+        <div className="container mt-5">
+            {character ? (
+                <>
+                    <h1>{character.name}</h1>
+                    <p><strong>Gender:</strong> {character.gender}</p>
+                    <p><strong>Birth Year:</strong> {character.birth_year}</p>
+                    <p><strong>Eye Color:</strong> {character.eye_color}</p>
+                </>
+            ) : (
+                <p>Loading...</p>
+            )}
         </div>
     );
 }
