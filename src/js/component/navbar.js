@@ -6,7 +6,7 @@ export const Navbar = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<nav className="navbar navbar-light bg-light mb-3">
+		<nav className="navbar navbar-light bg-light mb-3 mx-5">
 			<Link to="/">
 				<span className="navbar-brand mb-0 h1">Star Wars API</span>
 			</Link>

@@ -5,9 +5,9 @@ import ScrollToTop from "./component/scrollToTop";
 import { Home } from "./views/home";
 import { Single } from "./views/single";
 import CharacterCard from "./component/characterCard";
-import PlanetDescription from "./views/planetDescription"; // Similar setup for planets
+import PlanetDescription from "./views/planetDescription"; 
 import VehicleDescription from "./views/vehicleDescription";
-import CharacterDescription from "./views/characterDescription"; // Make sure to import the CharacterDescription component
+import CharacterDescription from "./views/characterDescription"; 
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -27,9 +27,9 @@ const Layout = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/character/:id" element={<CharacterDescription />} />
-            <Route path="/character-card/:id" element={<CharacterCard />} />
-            <Route path="/planet/:id" element={<PlanetDescription />} /> Route for planet
-            <Route path="/vehicle/:id" element={<VehicleDescription />} /> Route for vehicle
+            {/* <Route path="/character-card/:id" element={<CharacterCard />} /> */}
+            <Route path="/planet/:id" element={<PlanetDescription />} /> 
+            <Route path="/vehicle/:id" element={<VehicleDescription />} /> 
             <Route path="/single/:theid" element={<Single />} />
             <Route path="*" element={<h1>Not found!</h1>} />
           </Routes>

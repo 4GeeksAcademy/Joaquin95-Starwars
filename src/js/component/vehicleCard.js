@@ -34,7 +34,7 @@ export default function vehicleCard() {
                     {/* <img src={vehicle.imageUrl} className="card-img-top" alt={vehicle.name}> */}
                     <div className="card-body">
                         <h5 className="card-title">{vehicle.name}</h5> 
-                        <p className="card-text">{vehicle.affiliation || 'Working?'}</p>
+                        <p className="card-text">{vehicle.model || 'vehicles'}</p>
                         <Link to={`/vehicle/${vehicle.uid}`} className="btn btn-primary">Learn more</Link>
                         <span 
                             onClick={(e) => handleFavorites(e, vehicle.name)} 

@@ -4,7 +4,7 @@ import CharacterCard from "../component/characterCard";
 import PlanetCard from "../component/planetCard";
 import VehicleCard from "../component/vehicleCard";
 // import CardComponent from "./cardComponent"; // Import the card component
-// import CharacterDescription from "../views/characterDescription"; // Adjust the path as necessary
+import CharacterDescription from "../views/characterDescription"; // Adjust the path as necessary
 
 export const Home = () => {
   const { store } = useContext(Context);
@@ -21,7 +21,7 @@ export const Home = () => {
           ))}
         </div>
       </div>
-      <div className="container mt-5">
+      <div className="container mt-5 mx-3">
         <PlanetCard />
         <div className="row">
           {store.characters?.map((planet, index) => (

@@ -9,14 +9,15 @@ export default function CharacterDescription() {
 
   useEffect(() => {
     async function getCharacter() {
-      let response = await fetch("https://www.swapi.tech/api/people/1");
+      let response = await fetch(`https://www.swapi.tech/api/people/${id}`);
       let data = await response.json();
       setCharacter(data.result.properties);
     }
     getCharacter();
-  }, []);
+  }, [id]);
 
   return (
+    
     <div>
       <img src={character.url}/>
       <h1>Name</h1>

@@ -11,6 +11,7 @@ export default function PlanetCard() {
             let response = await fetch("https://www.swapi.tech/api/planets/");
             let data = await response.json();
             setPlanets(data.results);
+            console.log(data.results);
             }
 
         getPlanets(); 
@@ -34,7 +35,7 @@ export default function PlanetCard() {
                     {/* <img src={planet.imageUrl} className="card-img-top" alt={planet.name}> */}
                     <div className="card-body">
                         <h5 className="card-title">{planet.name}</h5> 
-                        <p className="card-text">{planet.affiliation || 'Working?'}</p>
+                        <p className="card-text">{planet.terrain}</p>
                         <Link to={`/planet/${planet.uid}`} className="btn btn-primary">Learn more</Link>
                         <span 
                             onClick={(e) => handleFavorites(e, planet.name)} 

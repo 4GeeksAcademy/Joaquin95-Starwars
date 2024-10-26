@@ -30,7 +30,6 @@ export default function CharacterCard() {
         <div className="d-flex col-10 overflow-auto mt-5 mx-auto">
             {characters?.map((character, index) => ( 
                 <div key={index} className="card m-2" style={{"minWidth": "18rem"}}>
-                    {/* You can uncomment this line and provide an image URL */}
                     {/* <img src={character.imageUrl} className="card-img-top" alt={character.name}> */}
                     <div className="card-body">
                         <h5 className="card-title">{character.name}</h5> 
@@ -45,6 +44,9 @@ export default function CharacterCard() {
                     </div>
                 </div>
             ))}
+            
         </div>
+        
+        
     ); 
 }
