@@ -2,18 +2,18 @@ import React, { useEffect, useState, useContext } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 
-export default function PlanetCard() {
-    const [planets, setPlanets] = useState([]);
+export default function vehicleCard() {
+    const [vehicles, setVehicles] = useState([]);
     const { store, actions } = useContext(Context); 
 
     useEffect(() => {
-        async function getPlanets() {
-            let response = await fetch("https://www.swapi.tech/api/planets/");
+        async function getVehicles() {
+            let response = await fetch("https://www.swapi.tech/api/Vehicles");
             let data = await response.json();
-            setPlanets(data.results);
+            setVehicles(data.results);
             }
 
-        getPlanets(); 
+        getVehicles(); 
     }, []); 
 
   
@@ -28,19 +28,19 @@ export default function PlanetCard() {
 
     return (
         <div className="d-flex col-10 overflow-auto mt-5 mx-auto">
-            {planets?.map((planet, index) => ( 
+            {vehicles?.map((vehicle, index) => ( 
                 <div key={index} className="card m-2" style={{"minWidth": "18rem"}}>
                     {/* You can uncomment this line and provide an image URL */}
-                    {/* <img src={planet.imageUrl} className="card-img-top" alt={planet.name}> */}
+                    {/* <img src={vehicle.imageUrl} className="card-img-top" alt={vehicle.name}> */}
                     <div className="card-body">
-                        <h5 className="card-title">{planet.name}</h5> 
-                        <p className="card-text">{planet.affiliation || 'Working?'}</p>
-                        <Link to={`/planet/${planet.uid}`} className="btn btn-primary">Learn more</Link>
+                        <h5 className="card-title">{vehicle.name}</h5> 
+                        <p className="card-text">{vehicle.affiliation || 'Working?'}</p>
+                        <Link to={`/vehicle/${vehicle.uid}`} className="btn btn-primary">Learn more</Link>
                         <span 
-                            onClick={(e) => handleFavorites(e, planet.name)} 
+                            onClick={(e) => handleFavorites(e, vehicle.name)} 
                             style={{ cursor: 'pointer', fontSize: '1.5rem', marginLeft: '10px' }}
                         >
-                            {store.favs.includes(planet.name) ? '❤️' : '🤍'} 
+                            {store.favs.includes(vehicle.name) ? '❤️' : '🤍'} 
                         </span>
                     </div>
                 </div>

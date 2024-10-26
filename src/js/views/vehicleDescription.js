@@ -4,27 +4,27 @@ import { useParams } from "react-router-dom";
 
 export default function CharacterDescription() {
   const { id } = useParams();
-  const [character, setCharacter] = useState({});
+  const [vehicles, setvehicles] = useState({});
   const { store, actions } = useContext(Context);
 
   useEffect(() => {
-    async function getCharacter() {
-      let response = await fetch("https://www.swapi.tech/api/people/1");
+    async function vehicle() {
+      let response = await fetch("https://www.swapi.tech/api/Vehicles");
       let data = await response.json();
-      setCharacter(data.result.properties);
+      setplanet(data.result.properties);
     }
-    getCharacter();
+    vehicle();
   }, []);
 
   return (
     <div>
-      <img src={character.url}/>
+      <img src={vehicles.url} />
       <h1>Name</h1>
-      <h6>{character.name}</h6>
-      <h1>Birth year</h1>
-      <h6>{character.birth_year}</h6>
-      <h1>Gender</h1>
-      <h6>{character.gender}</h6>
+      <h6>{vehicles.name}</h6>
+      <h1>Modal</h1>
+      <h6>{vehicles.modal}</h6>
+      <h1>Speed</h1>
+      <h6>{vehicles.speed}</h6>
     </div>
   );
 }

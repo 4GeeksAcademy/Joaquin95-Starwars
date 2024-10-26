@@ -4,27 +4,27 @@ import { useParams } from "react-router-dom";
 
 export default function CharacterDescription() {
   const { id } = useParams();
-  const [character, setCharacter] = useState({});
+  const [planets, setplanets] = useState({});
   const { store, actions } = useContext(Context);
 
   useEffect(() => {
-    async function getCharacter() {
-      let response = await fetch("https://www.swapi.tech/api/people/1");
+    async function getplanet() {
+      let response = await fetch("https://www.swapi.tech/api/planets/");
       let data = await response.json();
-      setCharacter(data.result.properties);
+      setplanet(data.result.properties);
     }
-    getCharacter();
+    getplanet();
   }, []);
 
   return (
     <div>
-      <img src={character.url}/>
+      <img src={planets.url}/>
       <h1>Name</h1>
-      <h6>{character.name}</h6>
+      <h6>{planets.name}</h6>
       <h1>Birth year</h1>
-      <h6>{character.birth_year}</h6>
-      <h1>Gender</h1>
-      <h6>{character.gender}</h6>
+      <h6>{planets.birth_year}</h6>
+      <h1>population</h1>
+      <h6>{planets.population}</h6>
     </div>
   );
 }
