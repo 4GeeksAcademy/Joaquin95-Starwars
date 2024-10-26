@@ -3,8 +3,8 @@ import { Context } from "../store/appContext";
 import CharacterCard from "../component/characterCard";
 import PlanetCard from "../component/planetCard";
 import VehicleCard from "../component/vehicleCard";
-// import CardComponent from "./cardComponent"; // Import the card component
-import CharacterDescription from "../views/characterDescription"; // Adjust the path as necessary
+// import CardComponent from "./cardComponent";
+import CharacterDescription from "../views/characterDescription"; 
 
 export const Home = () => {
   const { store } = useContext(Context);
@@ -21,7 +21,7 @@ export const Home = () => {
           ))}
         </div>
       </div>
-      <div className="container mt-5 mx-3">
+      <div className="container mt-5">
         <PlanetCard />
         <div className="row">
           {store.characters?.map((planet, index) => (
@@ -36,7 +36,7 @@ export const Home = () => {
         <div className="row">
           {store.characters?.map((vehicle, index) => (
             <div key={index} className="col-md-4">
-              <VehicleCardCard item={vehicle} type="vehicle" />
+              <VehicleCard item={vehicle} type="vehicle" />
             </div>
           ))}
         </div>

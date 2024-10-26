@@ -30,8 +30,6 @@ export default function vehicleCard() {
         <div className="d-flex col-10 overflow-auto mt-5 mx-auto">
             {vehicles?.map((vehicle, index) => ( 
                 <div key={index} className="card m-2" style={{"minWidth": "18rem"}}>
-                    {/* You can uncomment this line and provide an image URL */}
-                    {/* <img src={vehicle.imageUrl} className="card-img-top" alt={vehicle.name}> */}
                     <div className="card-body">
                         <h5 className="card-title">{vehicle.name}</h5> 
                         <p className="card-text">{vehicle.model || 'vehicles'}</p>

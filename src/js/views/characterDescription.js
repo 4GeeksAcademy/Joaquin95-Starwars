@@ -17,9 +17,7 @@ export default function CharacterDescription() {
   }, [id]);
 
   return (
-    
-    <div>
-      <img src={character.url}/>
+    <div className="text-center">
       <h1>Name</h1>
       <h6>{character.name}</h6>
       <h1>Birth year</h1>

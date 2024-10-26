@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { Context } from "../store/appContext";
 import { useParams } from "react-router-dom";
 
-export default function CharacterDescription() {
+export default function VehicleDescription() {
   const { id } = useParams();
   const [vehicle, setvehicle] = useState({});
   const { store, actions } = useContext(Context);
@@ -17,8 +17,7 @@ export default function CharacterDescription() {
   }, [id]);
 
   return (
-    <div>
-      {/* <img src={vehicle.url} /> */}
+    <div className="text-center">
       <h1>Name</h1>
       <h6>{vehicle.name}</h6>
       <h1>Model</h1>

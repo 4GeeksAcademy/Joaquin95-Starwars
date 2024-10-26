@@ -1,3 +1,30 @@
-/* 
-    General Styles
-*/
+/* styles.css */
+
+body {
+    background-color: #000000; /* Black background */
+    color: #FFFFFF;
+    font-family: 'Star Jedi', sans-serif; 
+}
+
+.navbar {
+    background-color: #1c1c1c;
+}
+
+.card {
+    background-color: #1c1c1c;
+    border: 1px solid #FFD700;
+}
+
+.card-title {
+    color: #FFD700;
+}
+
+.btn-primary {
+    background-color: #FFD700; 
+    color: #000000;
+}
+
+.btn-danger {
+    background-color: #FF0000;
+    color: #FFFFFF;
+}
